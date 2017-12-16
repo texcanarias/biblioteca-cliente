@@ -1,0 +1,305 @@
+@import 'utility';
+
+/////////////////////////////////////////////////////////////////// THIS PROJECT
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    color: $Color77AA38;
+}
+
+h1.page-header {
+    font-size: 2.4rem;
+    margin: 0 0 20px;
+    padding: 0;
+    border: none;
+}
+
+h1 {
+    font-size: 3.0rem;
+    color: $ColorBlack;
+}
+
+h2 { font-size: 2.6rem; }
+h3 { font-size: 2.2rem; }
+h4 { font-size: 1.8rem; }
+h5 { font-size: 1.4rem; }
+h6 { font-size: 1.2rem; }
+
+p, li {
+    color: $Color707478;
+}
+/////////////////////////////////////////////////////////////////// THIS PROJECT
+
+//////////////////////////////////////////////////////////////////// FORMULARIOS
+//////////////////////////////INPUT, SELECT
+/*select:focus,
+.ui-dropdown.ui-state-focus, .ui-multiselect.ui-state-focus,
+.ui-inputtext.ui-state-focus {
+    border-color: $Color9FA2A5 !important;
+    outline: 0;
+
+    @include box-shadow(none,null, null, null, null, !important);
+}
+.ui-inputtext.ui-state-hover { @include box-shadow(none,null, null, null, null, !important); }
+*/
+input { font-size: 1.2rem; }
+//////////////////////////////INPUT, SELECT
+//////////////////////////////////////////////////////////////////// FORMULARIOS
+
+
+body { background-color: #e4e4e4; }
+
+
+////////////////////////////////////////////////////////////////////////// LOGIN
+#login-wrapper {
+
+    h1 { font-size: 4.5rem; }
+
+    .login-cover, .login-cover-bg, .login-cover-image {
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: -1;
+    }
+
+    .login-cover-image img {
+        left: 0;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+    }
+
+    .login-cover-bg {
+        background: radial-gradient(ellipse at center,#666 0,#000 100%);
+        opacity: .5;
+    }
+
+
+
+    #login-container {
+        $Opacity: .6;
+        
+        .login {
+            #brand-content {
+                background: rgba(0, 0, 0, $Opacity);
+                float: left;
+                padding: 25px;
+                margin-bottom: 50px;
+                position: relative;
+
+                &::before {
+                    border-color: #000 transparent transparent transparent;
+                    border-style: solid;
+                    border-width: 48px 48px 0 0;
+                    content: "";
+                    height: 0;
+                    left: 0;
+                    opacity: $Opacity;
+                    position: absolute;
+                    top: 100%;
+                    width: 0;
+                }
+            }
+        }
+
+        .login-v2 {
+            width: 450px;
+            max-width: 100%;
+            margin: 168px auto;
+            position: relative;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+
+            #login-v2-container {
+                background: rgba(0, 0, 0, $Opacity);
+            }
+        }
+
+        .login.login-v2 .login-header, .login.login-v2 a {
+            color: #fff;
+        }
+        .login .login-header {
+            position: absolute;
+            top: -80px;
+            left: 50%;
+            right: 0;
+            width: 450px;
+            max-width: 100%;
+            padding: 0 40px;
+            margin-left: -225px;
+            font-weight: 300;
+        }
+
+        .login-v2 .login-content {
+            padding: 40px;
+        }
+        .login .login-content {
+            padding: 30px 40px;
+            color: #999;
+            width: 450px;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+    }
+}
+////////////////////////////////////////////////////////////////////////// LOGIN
+
+///////////////////////////////////////////////////////////////////////// HEADER
+$HeaderHeight: 43;
+#header {
+
+    min-height: ($HeaderHeight * 2 + 9) + px;
+
+    > div {
+        padding: 0 25px;
+    }
+
+    .brand-logo { font-size: 1.8rem; height: ($HeaderHeight + 9) + px; margin: 0; padding: 12px 0; }
+
+    ///////////////////////////////////////////////////////////// HEADER TOP
+    #header-top {
+        background-color: #313131;
+        color: $ColorWhite;
+        height: $HeaderHeight + px;
+        left: 0;
+        line-height: $HeaderHeight + px;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 920;
+    }
+
+    //////////////////////////////////////////////////// HEADER TOP LEFT
+    //////////////////////////////////////////////////// HEADER TOP LEFT
+
+    //////////////////////////////////////////////////// HEADER TOP RIGHT
+    //////////////////////////////////////////////////// HEADER TOP RIGHT
+
+    #header-user {
+        #header-user-info {
+            img {
+                width: 30px;
+                height: 30px;
+                margin: 0 10px 0 0;
+
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                border-radius: 50%;
+            }
+
+            span {
+            }
+        }
+
+        #header-user-menu {}
+    }
+    ///////////////////////////////////////////////////////////// HEADER TOP
+
+
+    ///////////////////////////////////////////////////////////// HEADER BOT
+    #header-bot {
+        color: $ColorWhite;
+        border-bottom: 1px solid #CCC;
+        left: 0;
+        height: ($HeaderHeight + 11) + px;
+        position: fixed;
+        right: 0;
+        top: $HeaderHeight + px;
+        z-index: 920;
+    }
+
+    .resaltado-cabecera {
+        background: #515151;
+        background-color: #515151;
+        color: #77aa38;
+        font-size: 1.3rem;
+        font-weight: bold;
+        padding: 5px 10px;
+    }
+
+    //////////////////////////////////////////////////// HEADER BOT LEFT
+    //////////////////////////////////////////////////// HEADER BOT LEFT
+
+
+    //////////////////////////////////////////////////// HEADER BOT RIGHT
+    //////////////////////////////////////////////////// HEADER BOT RIGHT
+    ///////////////////////////////////////////////////////////// HEADER BOT    
+}
+///////////////////////////////////////////////////////////////////////// HEADER
+
+
+////////////////////////////////////////////////////////////////////// MENU MAIN
+#menu-main {
+    ul.ui-menubar-root-list {
+
+        li {
+            &:hover > a {
+                opacity: .6;
+            }
+
+            a {
+                color: $Color585663;
+
+
+
+                &.ui-state-active {
+                    background: $Color77AA38;
+                    background-color: $Color77AA38;
+                    color: $ColorWhite;
+                }
+            }
+
+            ul.ui-menu-child {
+                border-right: 1px solid #CCC;
+                border-bottom: 1px solid #CCC;
+                border-left: 1px solid #CCC;
+
+                border-radius: 0 0 4px 4px;
+
+
+                li {
+                    &:hover > a {
+                        background: $ColorCD;
+                        background-color: $ColorCD;
+                        opacity: 1;
+                    }
+
+                    a {
+                        &.ui-state-active {
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+////////////////////////////////////////////////////////////////////// MENU MAIN
+
+
+/////////////////////////////////////////////////////////////////////////// BODY
+//No tenemos un id o una clase para localizar el body, asi que hay que tirar de relatividad
+#header + router-outlet + * > div,
+#header + *:not(router-outlet) > div {
+    padding: 20px 25px 60px;
+}
+/////////////////////////////////////////////////////////////////////////// BODY
+
+
+///////////////////////////////////////////////////////////////// BOTONES VERDES
+.ui-button:not(.ui-datepicker-trigger),
+.ui-paginator-element.ui-state-active,
+.ui-radiobutton-box.ui-state-active
+{
+    @extend %btn-green;
+}
+
+.ui-button:not(.ui-datepicker-trigger):hover,
+.ui-paginator-element.ui-state-active:hover,
+.ui-radiobutton-box.ui-state-active:hover
+{
+    @extend %btn-green-hover;
+}
+///////////////////////////////////////////////////////////////// BOTONES VERDES

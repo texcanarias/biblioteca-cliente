@@ -1,0 +1,122 @@
+<div *ngIf="!usuarioLogueado" id="login-wrapper">
+    <div class="login-cover">
+        <div class="login-cover-image">
+            <img class="max-width-auto" src="../resources/img/fondo-registro.jpg" data-id="login-cover-image" alt="" />
+        </div>
+        <div class="login-cover-bg"></div>
+    </div>
+
+    <div class="height-100"></div>
+
+    <div id="login-container">
+        <div class="login login-v2 m-b-0 m-t-0">
+            <div id="brand-content">
+                <img src="../resources/img/logo_admin_login.png" alt="Logo admin" />
+                <h1 class="f-w-normal text-white">
+                    M&oacute;dulo de
+                    <br />
+                    Auditor&iacute;as 5S
+                </h1>
+            </div>
+            
+            <div class="clearfix"></div>
+
+            <div id="login-v2-container">            
+                <div class="login-header p-0">
+                    <div class="brand"></div>
+                </div> <!-- /login-header -->
+
+                <div class="login-content">
+                    <div id="mensajes" class="m-b-15">
+                        <p-messages [value]="msgs"></p-messages>
+
+                        <div class="ui-messages ui-widget ui-corner-all ui-messages-warn display-block">
+                            <span class="ui-messages-icon fa fa-fw fa-2x fa-warning pull-left text-left m-0" ng-reflect-klass="ui-messages-icon fa fa-fw fa-2x" ng-reflect-ng-class="fa-close"></span>
+                            <ul class="display-block">
+                                <li>
+                                    <span class="ui-messages-summary m-0">Advertencia:</span>
+                                    <span class="ui-messages-detail">En esta simulaci&oacute;n los posibles usuarios son admin, editor y auditor.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div> <!-- /mensajes -->
+
+                    <div *ngIf="!solicitudRecordarContrasenya">
+                        <div class="m-b-15">
+                            <label class="hide" for="usuario">Usuario:</label>
+                            <input class="ui-inputtext ui-corner-all ui-state-default ui-widget" id="usuario" placeholder="USUARIO" pInputText [(ngModel)]="usuario" />
+                        </div>
+
+                        <div class="m-b-15">
+                            <label class="hide" for="password">Password:</label>
+                            <input class="ui-inputtext ui-corner-all ui-state-default ui-widget" id="password" type="password" placeholder="PASSWORD" pInputText [(ngModel)]="password" />
+                        </div>
+
+                        <div class="m-b-15">
+                            <button class="width-full" type="button" pButton (click)="save()" label="Entrar"></button>
+                        </div>
+
+                        <div>
+                            <a class="text-lime text-decoration-underline" href="javascript:;" title="Recordar contrase&ntilde;a" (click)="activar_recordar_contrasenya()">Recordar contrase&ntilde;a</a>
+                        </div>
+                    </div> <!-- /login-form -->
+
+                    <div *ngIf="solicitudRecordarContrasenya">
+                        <div class="m-b-15">
+                            <label class="hide" for="email">Email: <i class="fa fa-asterisk" title="Campo obligatorio"></i></label>
+                            <input class="ui-inputtext ui-corner-all ui-state-default ui-widget" id="email" type="email" required="required" placeholder="EMAIL" pInputText [(ngModel)]="email" />
+                        </div>
+
+                        <div>
+                            <div class="pull-left"><button type="button" pButton icon="fa-close" (click)="cancelar_recordar_contrasenya()" label="Cancelar"></button></div>
+                            <div class="pull-right"><button type="button" pButton icon="fa-check" (click)="recordar_contrasenya()" label="Recordar"></button></div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </div> <!-- /recordar-pass -->
+                </div> <!-- /login-content -->
+            </div> <!-- /login-v2-container -->
+        </div> <!-- /login-v2 -->
+    </div> <!-- /login-container -->
+</div> <!-- login-wrapper -->
+
+<div id="header" *ngIf="usuarioLogueado">
+    <div id="header-top">
+        <div id="header-top-left" class="pull-left">
+            <p class="text-white pull-left m-0 m-r-15">Auditor&iacute;as 5S</p>
+            <p class="pull-left m-0"><span class="resaltado-cabecera">Empresa: Euskalit</span></p>
+        </div> <!-- /header-top-left -->
+
+        <div id="header-top-right" class="pull-right">
+            <div id="header-user">
+                <div id="header-user-info" class="pull-left m-r-20">
+                    <img src="http://www.adclick.es/clientes/demo/euskalit-foton/resources/multimedia/usuarios/user-13.jpg" alt="Imagen de perfil" />
+                    <span>{{objUsuarioLogueado.nombre}}</span>
+                </div> <!-- /header-user-info -->
+                <div id="header-user-menu" class="pull-left">
+                    <button class="v-align-baseline" type="button" pButton label="Cerrar sesi&oacute;n" icon="fa-sign-out" (click)="logout()"></button>
+                </div> <!-- /header-user-menu -->
+            </div>
+        </div> <!-- /header-top-right -->
+
+        <div class="clearfix"></div>
+    </div> <!-- /header-top -->
+
+    <div id="header-bot" class="bg-white">
+        <div id="header-bot-left" class="pull-left">
+            <p class="brand-logo"><img src="http://www.adclick.es/clientes/demo/euskalit-foton/application/views/resources/multimedia/imagen_marca/logo_admin_login.png" alt=""></p>
+        </div> <!-- /header-bot-left -->
+
+        <div id="header-bot-right" class="pull-right">
+            <div id="menu-main">
+                <div class="ui-menu-right ui-menu-inline" *ngIf="usuarioLogueado">
+                    <p-menubar [model]="itemsMenubar"></p-menubar>
+                </div>
+            </div> <!-- /menu-main -->
+        </div> <!-- /header-bot-right -->
+
+        <div class="clearfix"></div>
+    </div> <!-- /header-bot -->
+</div> <!-- /header -->
+
+<router-outlet></router-outlet>

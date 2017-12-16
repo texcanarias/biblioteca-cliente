@@ -1,0 +1,111 @@
+//////////////////////////////////////////////////////////////////////// COLORES
+$Color242A30: #242a30;
+$Color333: #333;
+$Color348FE2: #348fe2;
+$Color3C763D: #3c763d;
+$Color555: #555;
+$Color585663: #585663;
+$Color707478: #707478;
+$Color77AA38: #77aa38;
+$Color7CDDA7: #7cdda7;
+$Color7D: #7d7d7d;
+$Color8A6D3B: #8a6d3b;
+$Color9FA2A5: #9fa2a5;
+$ColorA94442: #a94442;
+$ColorBlack: #000;
+$ColorCCD0D4: #ccd0d4;
+$ColorCD: #cdcdcd;
+$ColorD8DDE1: #d8dde1;
+$ColorD9: #d9d9d9;
+$ColorDDD: #ddd;
+$ColorE2E7EB: #e2e7eb;
+$ColorE8ECF1: #e8ecf1;
+$ColorF0F3F5: #f0f3f5;
+$ColorF6F7F9: #f6f7f9;
+$ColorF8B2B2: #f8b2b2;
+$ColorFFEAD0: #ffead0;
+$ColorGreen: #036936;
+$ColorGreenHover: #034926;
+$ColorGrey: $Color242A30;
+$ColorWhite: #fff;
+//////////////////////////////////////////////////////////////////////// COLORES
+
+
+$MainColor: $ColorWhite;
+$MainBgColor: $ColorWhite;
+$MainFont: 'Open Sans',"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+
+$BtnPrimaryColor: $ColorWhite;
+$BtnPrimaryBgColor: $ColorGreen;
+$BtnPrimaryBorderColor: transparent;
+$BtnPrimaryBgColorHover: $ColorGreenHover;
+$BtnPrimaryBorderColorHover: $BtnPrimaryBgColorHover;
+
+$BtnWhiteColor: $Color333;
+$BtnWhiteBgColor: $ColorWhite;
+$BtnWhiteBorderColor: $ColorE2E7EB;
+$BtnWhiteBgColorHover: $ColorE2E7EB;
+$BtnWhiteBorderColorHover: $ColorD8DDE1;
+
+
+///////////////////////////////////////////////////////////////////////// MIXINS
+@mixin border-radius($topLeft, $topRight:$topLeft, $bottomLeft: $topLeft, $bottomRight: $topLeft, $important: null) {
+    -webkit-border-top-left-radius: $topLeft $important;
+    -webkit-border-top-right-radius: $topRight $important;
+    -webkit-border-bottom-left-radius: $bottomLeft $important;
+    -webkit-border-bottom-right-radius: $bottomRight $important;
+    -moz-border-top-left-radius: $topLeft $important;
+    -moz-border-top-right-radius: $topRight $important;
+    -moz-border-bottom-left-radius: $bottomLeft $important;
+    -moz-border-bottom-right-radius: $bottomRight $important;
+    -ms-border-top-left-radius: $topLeft $important;
+    -ms-border-top-right-radius: $topRight $important;
+    -ms-border-bottom-left-radius: $bottomLeft $important;
+    -ms-border-bottom-right-radius: $bottomRight $important;
+    border-top-left-radius: $topLeft $important;
+    border-top-right-radius: $topRight $important;
+    border-bottom-left-radius: $bottomLeft $important;
+    border-bottom-right-radius: $bottomRight $important;
+}
+
+@mixin box-shadow($type, $x: null, $y: null, $z: null, $color: null, $important:null) {
+    -webkit-box-shadow: $type $x $y $z $color $important;
+    box-shadow: $type $x $y $z $color $important;
+}
+
+@mixin transition-double($target, $type, $time, $target2, $type2, $time2, $important: null) {
+    -webkit-transition: $target $type $time, $target2 $type2 $time2 $important;
+    -o-transition: $target $type $time, $target2 $type2 $time2 $important;
+    transition: $target $type $time, $target2 $type2 $time2 $important;
+}
+///////////////////////////////////////////////////////////////////////// MIXINS
+
+
+//////////////////////////////////////////////////////// PLANTILLAS PARA HEREDAR
+%btn-green {
+    background: $BtnPrimaryBgColor !important;
+    border: 1px solid $BtnPrimaryBorderColor !important;
+    color: $BtnPrimaryColor !important;
+}
+%btn-green-hover {
+    background-color: $BtnPrimaryBgColorHover !important;
+    border-color: $BtnPrimaryBorderColorHover !important;
+
+}
+%btn-white {
+    background: $BtnWhiteBgColor !important;
+    border: 1px solid $BtnWhiteBorderColor !important;
+    color: $BtnWhiteColor !important;
+}
+%btn-white-hover {
+    background-color: $BtnWhiteBgColorHover !important;
+    border-color: $BtnWhiteBorderColorHover !important;
+}
+//////////////////////////////////////////////////////// PLANTILLAS PARA HEREDAR
+
+
+//////////////////////////////////////////////////////////////////////////// VAR
+$DefaultLineHeight: 1.42857143;
+$DefaultSeparation: 15px;
+//////////////////////////////////////////////////////////////////////////// VAR
