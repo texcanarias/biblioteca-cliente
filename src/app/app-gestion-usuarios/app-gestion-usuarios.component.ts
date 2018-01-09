@@ -18,8 +18,6 @@ class ObjectoUsuario implements Usuario {
     styleUrls: ['./app-gestion-usuarios.component.css']
 })
 export class AppGestionUsuariosComponent extends AppBaseComponent {
-    //usuarioLogueado: boolean = false;
-
     item: Usuario = new ObjectoUsuario();
 
     msgs: any[] = []; //Array de mensajes de error    
@@ -134,11 +132,7 @@ export class AppGestionUsuariosComponent extends AppBaseComponent {
     }
 
     activar_boton_save() {
-        console.log("Verificando activar_boton_save");
-        console.log("X = " + this.nueva_contrasenya);
-        console.log("Y = " + this.confirmar_nueva_contrasenya);
         if (this.nueva_contrasenya === this.confirmar_nueva_contrasenya && this.nueva_contrasenya.length >= 8) {
-            console.log("Activamos el boton save");
             this.mostrar_boton_save = true;
         }
     }

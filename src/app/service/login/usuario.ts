@@ -4,5 +4,5 @@ export interface Usuario{
     nombre?:string;
     tipo?:number;
     email?:string;
-    apikey?:string; //Apikey necesaria para las conexiones con el sistema de persistencia
+    apikey?:string; //Apikey necesaria para verificar la petición del webservice
 }

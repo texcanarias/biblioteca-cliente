@@ -13,9 +13,7 @@
             <div id="brand-content">
                 <img src="../resources/img/logo_admin_login.png" alt="Logo admin" />
                 <h1 class="f-w-normal text-white">
-                    M&oacute;dulo de
-                    <br />
-                    Auditor&iacute;as 5S
+                    Aplicaci&oacute;n
                 </h1>
             </div>
             
@@ -29,16 +27,6 @@
                 <div class="login-content">
                     <div id="mensajes" class="m-b-15">
                         <p-messages [value]="msgs"></p-messages>
-
-                        <div class="ui-messages ui-widget ui-corner-all ui-messages-warn display-block">
-                            <span class="ui-messages-icon fa fa-fw fa-2x fa-warning pull-left text-left m-0" ng-reflect-klass="ui-messages-icon fa fa-fw fa-2x" ng-reflect-ng-class="fa-close"></span>
-                            <ul class="display-block">
-                                <li>
-                                    <span class="ui-messages-summary m-0">Advertencia:</span>
-                                    <span class="ui-messages-detail">En esta simulaci&oacute;n los posibles usuarios son admin, editor y auditor.</span>
-                                </li>
-                            </ul>
-                        </div>
                     </div> <!-- /mensajes -->
 
                     <div *ngIf="!solicitudRecordarContrasenya">
@@ -104,7 +92,9 @@
 
     <div id="header-bot" class="bg-white">
         <div id="header-bot-left" class="pull-left">
-            <p class="brand-logo"><img src="http://www.adclick.es/clientes/demo/euskalit-foton/application/views/resources/multimedia/imagen_marca/logo_admin_login.png" alt=""></p>
+            <p class="brand-logo">
+                <img src="resources/multimedia/imagen_marca/logo_admin_login.png" alt="">
+            </p>
         </div> <!-- /header-bot-left -->
 
         <div id="header-bot-right" class="pull-right">

@@ -40,9 +40,7 @@ export class LoginService extends Base{
     return this.http.post(this.URLServer+"login", body, options)
       .toPromise()
       .then(res => <Usuario>res.json())
-      .then(data => { 
-        console.log(data);
-        return data; })
+      .then(data => {return data; })
       .catch(this.handleErrorRecuperarPass);
   }
 
