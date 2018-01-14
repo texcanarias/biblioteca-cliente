@@ -127,8 +127,6 @@ export class AppComponent {
       .then(item => {
         this.objUsuarioLogueado = item;
         this.configuracion_sesion()
-        console.log("app.component SAVE");
-        console.log(this.objUsuarioLogueado)
       })
       .catch((error: any) => {
         let codigo_error: Number = Number(error._body.code);

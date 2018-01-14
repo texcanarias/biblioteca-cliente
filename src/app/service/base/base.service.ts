@@ -17,7 +17,7 @@ export class Base {
       this.URLServer = "http://euskalit-beta.d368.dinaserver.com";
     }
     else{
-      this.URLServer = "http://192.168.50.238";
+      this.URLServer = "http://192.168.0.163";
     }
 
     //Temporal ya que no compila correctamente en modo produccion
