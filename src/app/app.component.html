@@ -1,5 +1,5 @@
 <div *ngIf="!usuarioLogueado" id="login-wrapper">
-    <div id="login-container">
+    <div id="login-container" class="">
         <div class="login login-v2 m-b-0 m-t-0">
             <div id="brand-content">
                 <img src="./assets/img/logo.png" alt="Logo admin" />
@@ -10,7 +10,7 @@
             
             <div class="clearfix"></div>
 
-            <div id="login-v2-container">            
+            <div id="login-v2-container" class="mx-auto">            
                 <div class="login-header p-0">
                     <div class="brand"></div>
                 </div> <!-- /login-header -->
@@ -52,24 +52,23 @@
                         </div>
 
                         <div class="clearfix"></div>
-                    </div> <!-- /recordar-pass -->
-                </div> <!-- /login-content -->
-            </div> <!-- /login-v2-container -->
-        </div> <!-- /login-v2 -->
-    </div> <!-- /login-container -->
-</div> <!-- login-wrapper -->
+                    </div> 
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
 
 <div id="header" *ngIf="usuarioLogueado">
     <div id="header-top">
         <div id="header-top-left" class="pull-left">
-            <p class="text-white pull-left m-0 m-r-15">Auditor&iacute;as 5S</p>
-            <p class="pull-left m-0"><span class="resaltado-cabecera">Empresa: Euskalit</span></p>
+            <p class="text-white pull-left m-0 m-r-15">Gesti&oacute;n</p>
+            <p class="pull-left m-0"><span class="resaltado-cabecera">disotm</span></p>
         </div> <!-- /header-top-left -->
 
         <div id="header-top-right" class="pull-right">
             <div id="header-user">
                 <div id="header-user-info" class="pull-left m-r-20">
-                    <img src="./assets/img/user-default.jpg" alt="Imagen de perfil" />
                     <span>{{objUsuarioLogueado.nombre}}</span>
                 </div> <!-- /header-user-info -->
                 <div id="header-user-menu" class="pull-left">
