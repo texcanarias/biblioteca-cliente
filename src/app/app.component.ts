@@ -20,9 +20,8 @@ class UsuarioLogueado implements Usuario {
 export class AppComponent {
 
   static tipo_admin: number = 2;
-  static tipo_editor: number = 3;
-  static tipo_auditor: number = 4;
-
+  static tipo_gestor: number = 3;
+  
 
   msgs: any[] = []; //Array de mensajes de error 
 
@@ -62,14 +61,21 @@ export class AppComponent {
       case AppComponent.tipo_admin:
         this.itemsMenubar = [
           { label: 'Empresas', icon: 'fa-address-book', routerLink: ['/gestion_empresa'] },
-          { label: 'Administrador', icon: 'fa-user', routerLink: ['/gestion_usuario'] }
+          { label: 'Administrador', icon: 'fa-user', routerLink: ['/gestion_usuario'] },
+          {
+            label:'Gestión', icon: 'fa-area-chart',
+            items: [
+              { label: 'Clientes', icon: 'fa-calendar-o', routerLink: ['/gestion_clientes'] },
+              { label: 'Proveedores', icon: 'fa-play', routerLink: ['/gestion_proveedores'] }              
+            ]
+          }
         ];
         break;
-      case AppComponent.tipo_editor:
+      case AppComponent.tipo_gestor:
         this.itemsMenubar = [
-          { label: 'Calendario de auditorias', icon: 'fa-calendar-o', routerLink: ['/calendario'] },
-          { label: 'Acciones', icon: 'fa-play', routerLink: ['/acciones'] },
-          {
+          { label: 'Clientes', icon: 'fa-calendar-o', routerLink: ['/gestion_clientes'] },
+          { label: 'Proveedores', icon: 'fa-play', routerLink: ['/gestion_proveedores'] }
+/*          {
             label: 'Estadísticas', icon: 'fa-area-chart',
             items: [{ label: 'Puntuaciones totales', icon: 'fa-line-chart', routerLink: ['/estadisticas_totales'] },
             { label: 'Listado indicadores', icon: 'fa-area-chart', routerLink: ['/estadisticas_listado_indicadores'] },
@@ -83,19 +89,7 @@ export class AppComponent {
             { label: 'Documentación', icon: 'fa-paperclip', routerLink: ['/documentacion'] },
             { label: 'Areas', icon: 'fa-th', routerLink: ['/area'] }
             ]
-          }
-        ];
-        break;
-      case AppComponent.tipo_auditor:
-        this.itemsMenubar = [
-          { label: 'Calendario de auditorias', icon: 'fa-calendar-o', routerLink: ['/calendario'] },
-          { label: 'Acciones', icon: 'fa-play', routerLink: ['/acciones'] },
-          {
-            label: 'Estadísticas', icon: 'fa-area-chart',
-            items: [{ label: 'Puntuaciones totales', icon: 'fa-line-chart', routerLink: ['/estadisticas_totales'] },
-            { label: 'Listado indicadores', icon: 'fa-area-chart', routerLink: ['/estadisticas_listado_indicadores'] },
-            { label: 'Indicadores por área', icon: 'fa-area-chart', routerLink: ['/estadisticas_listado_area_indicadores'] }]
-          }
+          }*/
         ];
         break;
     }
@@ -156,7 +150,7 @@ export class AppComponent {
         this.router.navigate(['/gestion_empresa']);
         this.editar_menu();
         break;
-      case AppComponent.tipo_editor:
+      /*case AppComponent.tipo_editor:
         sessionStorage.setItem('usuarioEnSession', JSON.stringify(this.objUsuarioLogueado));
         this.router.navigate(['/area']);
         this.editar_menu();
@@ -165,7 +159,7 @@ export class AppComponent {
         sessionStorage.setItem('usuarioEnSession', JSON.stringify(this.objUsuarioLogueado));
         this.router.navigate(['/calendario']);
         this.editar_menu();
-        break;
+        break;*/
       default:
         this.usuarioLogueado = false;
         this.msgs.push({ severity: 'error', summary: 'Usuario o password incorrecto.', detail: 'Ha introducido un usuario o contraseña incorrecto.' });
