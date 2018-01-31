@@ -60,7 +60,6 @@ export class AppComponent {
     switch (Number(this.objUsuarioLogueado.tipo)) {
       case AppComponent.tipo_admin:
         this.itemsMenubar = [
-          { label: 'Empresas', icon: 'fa-address-book', routerLink: ['/gestion_empresa'] },
           { label: 'Administrador', icon: 'fa-user', routerLink: ['/gestion_usuario'] },
           {
             label:'Gestión', icon: 'fa-area-chart',
@@ -75,21 +74,6 @@ export class AppComponent {
         this.itemsMenubar = [
           { label: 'Clientes', icon: 'fa-calendar-o', routerLink: ['/gestion_clientes'] },
           { label: 'Proveedores', icon: 'fa-play', routerLink: ['/gestion_proveedores'] }
-/*          {
-            label: 'Estadísticas', icon: 'fa-area-chart',
-            items: [{ label: 'Puntuaciones totales', icon: 'fa-line-chart', routerLink: ['/estadisticas_totales'] },
-            { label: 'Listado indicadores', icon: 'fa-area-chart', routerLink: ['/estadisticas_listado_indicadores'] },
-            { label: 'Indicadores por área', icon: 'fa-area-chart', routerLink: ['/estadisticas_listado_area_indicadores'] }]
-          },
-          {
-            label: 'Edición', icon: 'fa-pencil',
-            items: [{ label: 'Modelos check list', icon: 'fa-check', routerLink: ['/check_list'] },
-            { label: 'Indicadores', icon: 'fa-reorder', routerLink: ['/indicadores'] },
-            { label: 'Equipo de trabajo', icon: 'fa-user-circle-o', routerLink: ['/equipo'] },
-            { label: 'Documentación', icon: 'fa-paperclip', routerLink: ['/documentacion'] },
-            { label: 'Areas', icon: 'fa-th', routerLink: ['/area'] }
-            ]
-          }*/
         ];
         break;
     }
@@ -147,19 +131,14 @@ export class AppComponent {
     switch (Number(this.objUsuarioLogueado.tipo)) {
       case AppComponent.tipo_admin:
         sessionStorage.setItem('usuarioEnSession', JSON.stringify(this.objUsuarioLogueado));
-        this.router.navigate(['/gestion_empresa']);
+        this.router.navigate(['/gestion_usuario']);
         this.editar_menu();
         break;
-      /*case AppComponent.tipo_editor:
+      case AppComponent.tipo_gestor:
         sessionStorage.setItem('usuarioEnSession', JSON.stringify(this.objUsuarioLogueado));
-        this.router.navigate(['/area']);
+        this.router.navigate(['/gestion_clientes']);
         this.editar_menu();
         break;
-      case AppComponent.tipo_auditor:
-        sessionStorage.setItem('usuarioEnSession', JSON.stringify(this.objUsuarioLogueado));
-        this.router.navigate(['/calendario']);
-        this.editar_menu();
-        break;*/
       default:
         this.usuarioLogueado = false;
         this.msgs.push({ severity: 'error', summary: 'Usuario o password incorrecto.', detail: 'Ha introducido un usuario o contraseña incorrecto.' });

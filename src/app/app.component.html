@@ -1,59 +1,67 @@
 <div *ngIf="!usuarioLogueado" id="login-wrapper">
-    <div id="login-container" class="">
-        <div class="login login-v2 m-b-0 m-t-0">
+    <div id="login-container" class="ui-g-12 ui-md-4 ui-md-offset-4">
+        <div class="">
             <div id="brand-content">
                 <img src="./assets/img/logo.png" alt="Logo admin" />
-                <h1 class="f-w-normal text-white">
+                <h1 class="f-w-normal">
                     Aplicaci&oacute;n
                 </h1>
             </div>
-            
+
             <div class="clearfix"></div>
 
-            <div id="login-v2-container" class="mx-auto">            
-                <div class="login-header p-0">
+            <div id="login-v2-container">
+                <div class="p-0">
                     <div class="brand"></div>
-                </div> <!-- /login-header -->
+                </div>
 
                 <div class="login-content">
                     <div id="mensajes" class="m-b-15">
                         <p-messages [value]="msgs"></p-messages>
-                    </div> <!-- /mensajes -->
+                    </div>
 
                     <div *ngIf="!solicitudRecordarContrasenya">
                         <div class="m-b-15">
                             <label class="hide" for="usuario">Usuario:</label>
-                            <input class="ui-inputtext ui-corner-all ui-state-default ui-widget" id="usuario" placeholder="USUARIO" pInputText [(ngModel)]="usuario" />
+                            <input class="ui-inputtext ui-corner-all ui-state-default ui-widget" id="usuario" placeholder="USUARIO" pInputText [(ngModel)]="usuario"
+                            />
                         </div>
 
                         <div class="m-b-15">
                             <label class="hide" for="password">Password:</label>
-                            <input class="ui-inputtext ui-corner-all ui-state-default ui-widget" id="password" type="password" placeholder="PASSWORD" pInputText [(ngModel)]="password" />
+                            <input class="ui-inputtext ui-corner-all ui-state-default ui-widget" id="password" type="password" placeholder="PASSWORD"
+                                pInputText [(ngModel)]="password" />
                         </div>
 
                         <div class="m-b-15">
                             <button class="width-full" type="button" pButton (click)="save()" label="Entrar"></button>
                         </div>
 
-                        <div>
+                        <div class="m-b-15">
                             <button class="text-lime text-decoration-underline" type="button" pButton label="Recordar contrase&ntilde;a" (click)="activar_recordar_contrasenya()"></button>
                         </div>
-                    </div> <!-- /login-form -->
+                    </div>
 
                     <div *ngIf="solicitudRecordarContrasenya">
                         <div class="m-b-15">
-                            <label class="hide" for="email">Email: <i class="fa fa-asterisk" title="Campo obligatorio"></i></label>
+                            <label class="hide" for="email">Email:
+                                <i class="fa fa-asterisk" title="Campo obligatorio"></i>
+                            </label>
                             <input class="ui-inputtext ui-corner-all ui-state-default ui-widget" id="email" type="email" required="required" placeholder="EMAIL" pInputText [(ngModel)]="email" />
                         </div>
 
                         <div>
-                            <div class="pull-left"><button type="button" pButton icon="fa-close" (click)="cancelar_recordar_contrasenya()" label="Cancelar"></button></div>
-                            <div class="pull-right"><button type="button" pButton icon="fa-check" (click)="recordar_contrasenya()" label="Recordar"></button></div>
+                            <div class="pull-left">
+                                <button type="button" pButton icon="fa-close" (click)="cancelar_recordar_contrasenya()" label="Cancelar"></button>
+                            </div>
+                            <div class="pull-right">
+                                <button type="button" pButton icon="fa-check" (click)="recordar_contrasenya()" label="Recordar"></button>
+                            </div>
                         </div>
 
                         <div class="clearfix"></div>
-                    </div> 
-                </div> 
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -62,41 +70,38 @@
 <div id="header" *ngIf="usuarioLogueado">
     <div id="header-top">
         <div id="header-top-left" class="pull-left">
-            <p class="text-white pull-left m-0 m-r-15">Gesti&oacute;n</p>
-            <p class="pull-left m-0"><span class="resaltado-cabecera">disotm</span></p>
-        </div> <!-- /header-top-left -->
+            <p class="brand-logo">
+                <img src="./assets/img/logo.png" alt="">
+            </p>
+            <p class="text-white pull-left m-0 m-r-15">Gesti&oacute;n&nbsp;</p>
+            <p class="pull-left m-0">
+                <span class="resaltado-cabecera">disotm</span>
+            </p>
+        </div>
 
         <div id="header-top-right" class="pull-right">
             <div id="header-user">
                 <div id="header-user-info" class="pull-left m-r-20">
                     <span>{{objUsuarioLogueado.nombre}}</span>
-                </div> <!-- /header-user-info -->
+                </div>
                 <div id="header-user-menu" class="pull-left">
                     <button class="v-align-baseline" type="button" pButton label="Cerrar sesi&oacute;n" icon="fa-sign-out" (click)="logout()"></button>
-                </div> <!-- /header-user-menu -->
+                </div>
             </div>
-        </div> <!-- /header-top-right -->
-
-        <div class="clearfix"></div>
-    </div> <!-- /header-top -->
+        </div>
+    </div>
+    <div class="clearfix"></div>
 
     <div id="header-bot" class="bg-white">
-        <div id="header-bot-left" class="pull-left">
-            <p class="brand-logo">
-                <img src="./assets/img/logo.png" alt="">
-            </p>
-        </div> <!-- /header-bot-left -->
-
         <div id="header-bot-right" class="pull-right">
             <div id="menu-main">
                 <div class="ui-menu-right ui-menu-inline" *ngIf="usuarioLogueado">
                     <p-menubar [model]="itemsMenubar"></p-menubar>
                 </div>
-            </div> <!-- /menu-main -->
-        </div> <!-- /header-bot-right -->
-
-        <div class="clearfix"></div>
-    </div> <!-- /header-bot -->
-</div> <!-- /header -->
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
 
 <router-outlet></router-outlet>
