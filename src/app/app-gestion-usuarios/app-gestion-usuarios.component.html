@@ -1,47 +1,59 @@
-<div *ngIf="usuarioLogueado">
+<div *ngIf="usuarioLogueado" class="ui-g">
     <p-messages [value]="msgs"></p-messages>
 
-    <h1>Datos del usuario</h1>
-
-    <p-panel>
-        <div *ngIf="!solicitudNuevaContrasenya">
+    <div *ngIf="!solicitudNuevaContrasenya">
+        <p-panel class="ui-g-12 ui-md-12 ui-lg-12">
+            <p-header>
+                <span>Datos generales</span>
+            </p-header>
             <div class="ui-g">
-                <div class="ui-md-6">
-                    <label for="nombre">Nombre: <i class="fa fa-asterisk" title="Campo obligatorio"></i></label>
+                <div class="ui-g-12 ui-md-12 ui-lg-12">
+                    <label for="nombre">Nombre:
+                        <i class="fa fa-asterisk" title="Campo obligatorio"></i>
+                    </label>
                     <input id="nombre" required="required" placeholder="Nombre" pInputText [(ngModel)]="item.nombre" />
                 </div>
-                <div class="ui-md-6">
-                    <label for="email">Email: <i class="fa fa-asterisk" title="Campo obligatorio"></i></label>
-                    <input id="email" type="email" required="required" placeholder="contacto@empresa.com" pInputText [(ngModel)]="item.email" />
-                </div>
-            </div> <!-- /iu-g -->
-
-            <div class="ui-buttonpane">
-                <div class="pull-right">
-                    <button class="m-r-15" type="button" label="Cambiar contrase&ntilde;a" icon="fa-check" pButton (click)="activar_cambiar_contrasenya()"></button>
-                    <button type="button" label="Guardar" icon="fa-save" pButton (click)="save()"></button>
+                <div class="ui-g-12 ui-md-12 ui-lg-12">
+                    <label for="email">Email:
+                        <i class="fa fa-asterisk" title="Campo obligatorio"></i>
+                    </label>
+                    <input id="email" type="email" required="required" placeholder="contacto@empresa.com" pInputText [(ngModel)]="item.email"
+                    />
                 </div>
             </div>
-        </div>
+            <p-footer>
+                <button type="button" label="Cambiar contrase&ntilde;a" icon="fa-check" pButton (click)="activar_cambiar_contrasenya()"></button>
+                <button type="button" label="Guardar" icon="fa-save" pButton (click)="save()"></button>
+            </p-footer>
+        </p-panel>
+    </div>
 
-        <div *ngIf="solicitudNuevaContrasenya">
+    <div *ngIf="solicitudNuevaContrasenya" class="ui-g">
+        <p-panel class="ui-g-12 ui-md-12 ui-lg-12">
+            <p-header>
+                <span>Cambio de contraseñas</span>
+            </p-header>
             <div class="ui-g">
-                <div class="ui-md-6">
-                    <label for="nueva_contrasenya">Nueva contrase&ntilde;a: <i class="fa fa-asterisk" title="Campo obligatorio"></i></label>
-                    <input id="nueva_contrasenya" type="password" required="required" pInputText [(ngModel)]="nueva_contrasenya" (change)="activar_boton_save()" />
+                <p>La contraseña debe ser mayor o igual a 8 carácteres.</p>
+                <div class="ui-g-12 ui-md-12 ui-lg-12">
+                    <label for="nueva_contrasenya">Nueva contrase&ntilde;a:
+                        <i class="fa fa-asterisk" title="Campo obligatorio"></i>
+                    </label>
+                    <input id="nueva_contrasenya" type="password" required="required" pInputText [(ngModel)]="nueva_contrasenya" (change)="activar_boton_save()"
+                    />
                 </div>
-                <div class="ui-md-6">
-                    <label for="confirmar_nueva_contrasenya">Confirmar: <i class="fa fa-asterisk" title="Campo obligatorio"></i></label>
-                    <input id="confirmar_nueva_contrasenya" type="password" required="required"  pInputText [(ngModel)]="confirmar_nueva_contrasenya" (change)="activar_boton_save()" />
+                <div class="ui-g-12 ui-md-12 ui-lg-12">
+                    <label for="confirmar_nueva_contrasenya">Confirmar:
+                        <i class="fa fa-asterisk" title="Campo obligatorio"></i>
+                    </label>
+                    <input id="confirmar_nueva_contrasenya" type="password" required="required" pInputText [(ngModel)]="confirmar_nueva_contrasenya"
+                        (change)="activar_boton_save()" />
                 </div>
             </div>
-
-            <div class="ui-buttonpane">
-                <div class="pull-right">
-                    <button class="m-r-15" *ngIf="mostrar_boton_save" type="button" pButton icon="fa-save" (click)="save_nueva_contrasenya()" label="Guardar"></button>
-                    <button type="button" pButton icon="fa-close" (click)="cancelar_cambiar_contrasenya()" label="Cancelar"></button>
-                </div>
-            </div>
-        </div>
-    </p-panel>
+            <p-footer>
+                <button *ngIf="mostrar_boton_save" type="button" pButton icon="fa-save" (click)="save_nueva_contrasenya()" label="Guardar"></button>
+                <button type="button" pButton icon="fa-close" (click)="cancelar_cambiar_contrasenya()" label="Cancelar"></button>
+            </p-footer>
+        </p-panel>
+    </div>
 </div>
