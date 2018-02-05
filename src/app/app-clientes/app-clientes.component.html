@@ -1,3 +1,56 @@
-<p>
-  app-clientes works!
-</p>
+<div *ngIf="usuarioLogueado">
+  <p-dataTable #dt [value]="items" selectionMode="single" [(selection)]="selectedItem" [paginator]="true" [rows]="10" [responsive]="true" (onRowSelect)="onRowSelect($event)">
+      <p-header>
+          <h1>Clientes</h1>
+
+          <div class="ui-buttonpane m-b-15">
+              <div class="pull-right">
+                  <button type="button" pButton icon="fa-plus" (click)="showDialogToAdd()" title="Nuevo modelo" label="Nuevo modelo"></button>
+              </div>
+          </div>
+      </p-header>
+
+      <p-column field="nombre" header="Modelo" [sortable]="true"></p-column>
+      <p-column field="activo" header="Activo" [sortable]="true"></p-column>
+
+      <p-footer>
+          <div class="ui-buttonpane">
+              <div class="pull-right">
+                  <button type="button" pButton icon="fa-plus" (click)="showDialogToAdd()" title="Nuevo modelo" label="Nuevo modelo"></button>
+              </div>
+          </div>
+      </p-footer>
+  </p-dataTable>
+
+  <p-confirmDialog header="Confirmaci&oacute;n de eliminaci&oacute;n" [responsive]="true" key="check"></p-confirmDialog>
+
+  <p-dialog header="Cliente" [(visible)]="displayDialog" [responsive]="true" [resizable]="false" [width]="auto" showEffect="fade" [modal]="true">
+      <p-messages [value]="msgs"></p-messages>
+
+      <div *ngIf="item">
+          <div class="ui-g">
+              <div class="ui-md-6">
+                  <label for="nombre">Modelo: <i class="fa fa-asterisk" title="Campo obligatorio"></i></label>
+                  <input id="nombre" required="required" placeholder="Nombre del equipo" pInputText [(ngModel)]="item.nombre" />
+              </div>
+
+              <div class="ui-md-6">
+                  <label for="activo">Activo:</label>
+                  <div class="clearfix"></div>
+                  <p-toggleButton [(ngModel)]="item.activo" [disabled]="false"></p-toggleButton>
+              </div>
+          </div>
+      </div>
+
+      <p-footer>
+          <div class="ui-dialog-buttonpane">
+              <div class="pull-left">
+                  <button *ngIf="!newItem" type="button" pButton icon="fa-trash" (click)="confirmDelete()" label="Eliminar"></button>
+              </div>
+              <div class="pull-right">
+                  <button type="button" pButton icon="fa-save" (click)="save()" label="Guardar"></button>
+              </div>
+          </div>
+      </p-footer>
+  </p-dialog>
+</div>

@@ -14,16 +14,11 @@ export class Base {
 
   constructor(http: Http) {
     if (environment.production) {
-      this.URLServer = "http://euskalit-beta.d368.dinaserver.com";
+      this.URLServer = "http://disotm.com";
     }
     else{
       this.URLServer = "http://192.168.0.163";
     }
-
-    //Temporal ya que no compila correctamente en modo produccion
-    //this.URLServer = window.location.protocol + '//' + window.location.hostname;
-    //this.URLServer = "http://euskalit-beta.d368.dinaserver.com";
-    //this.URLServer = "http://192.168.50.238";
   }
 
   protected getHeaders() {
