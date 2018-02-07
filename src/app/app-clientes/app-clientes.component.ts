@@ -22,10 +22,10 @@ class ObjetoCliente implements Cliente {
 
 export class AppClientesComponent extends AppBaseComponent {
     displayDialog: boolean;
-    item: ModeloCliente = new ObjetoCliente();
-    selectedItem: ModeloCliente;
+    item: Cliente = new ObjetoCliente();
+    selectedItem: Cliente;
     newItem: boolean;
-    items: ModeloCliente[];
+    items: Cliente[];
 
     //Calendario. Internacionalizacion del Calendario
     locale_calendar_es: any;
@@ -34,7 +34,7 @@ export class AppClientesComponent extends AppBaseComponent {
     msgs_table: any[] = []; //Array de mensajes de error  
 
     constructor(private ModeloClienteService: AppClientesService,
-        private confirmationService: ConfirmationService) {
+                private confirmationService: ConfirmationService) {
         super();
     }
 
@@ -45,8 +45,8 @@ export class AppClientesComponent extends AppBaseComponent {
     }
 
     cargaTodo(){
-        this.ModeloClienteService.getListado().then(items => {
-            this.items = <ModeloCliente[]>items;
+        this.ModeloClienteService.getItems().then(items => {
+            this.items = <Cliente[]>items;
         });
     }
 
@@ -63,7 +63,7 @@ export class AppClientesComponent extends AppBaseComponent {
                     this.ModeloClienteService.postItem(this.item)
                     .then((res: any) => {
                         let item = JSON.parse(res._body);
-                        let a: ModeloCliente = new ObjetoCliente(item.id,  item.nombre, item.codigo, item.url, item.comentarios, item.direccion, item.ciudad,  item.provincia,  item.estado, item.cp, item.persona_contacto, item.telefono, item.movil, item.fax, item.email, item.dias_vencimiento, item.tipo);
+                        let a: Cliente = new ObjetoCliente(item.id,  item.nombre, item.codigo, item.url, item.comentarios, item.direccion, item.ciudad,  item.provincia,  item.estado, item.cp, item.persona_contacto, item.telefono, item.movil, item.fax, item.email, item.dias_vencimiento, item.tipo);
                         items.push(a);                        
                         this.items = [...items];
                         this.item = null;
@@ -197,7 +197,7 @@ export class AppClientesComponent extends AppBaseComponent {
         this.displayDialog = true;
     }
 
-    cloneItem(c: ModeloCliente): ModeloCliente {
+    cloneItem(c: Cliente): Cliente {
         let item = new ObjetoCliente();
         for (let prop in c) {
             item[prop] = c[prop];

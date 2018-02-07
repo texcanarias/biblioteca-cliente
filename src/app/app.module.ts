@@ -15,7 +15,8 @@ import { AppClientesComponent } from './app-clientes/app-clientes.component';
 import { AppProveedoresComponent } from './app-proveedores/app-proveedores.component';
 import { AppHomeComponent } from './app-home/app-home.component';
 
-//Servicios para los detalles de la auditoria
+//Servicios 
+import { AppClientesService } from './service/app-clientes/app-clientes.service';
 import { GestionUsuarioService } from './service/gestion-usuarios/gestion-usuario.service';
 import { LoginService } from './service/login/login.service';
 
@@ -86,6 +87,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     ConfirmationService,
+    AppClientesService,
     GestionUsuarioService,
     LoginService,
     {provide: LocationStrategy, useClass: HashLocationStrategy}
