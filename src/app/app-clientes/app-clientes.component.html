@@ -1,4 +1,4 @@
-<div *ngIf="usuarioLogueado">
+<div *ngIf="usuarioLogueado" class="ui-g">
   <p-dataTable #dt [value]="items" selectionMode="single" [(selection)]="selectedItem" [paginator]="true" [rows]="10" [responsive]="true" (onRowSelect)="onRowSelect($event)">
       <p-header>
           <h1>Clientes</h1>
@@ -10,8 +10,9 @@
           </div>
       </p-header>
 
-      <p-column field="nombre" header="Modelo" [sortable]="true"></p-column>
-      <p-column field="activo" header="Activo" [sortable]="true"></p-column>
+      <p-column field="nombre" header="Nombre" [sortable]="true"></p-column>
+      <p-column field="codigo" header="Código" [sortable]="true"></p-column>
+      <p-column field="telefono" header="Telefono" ></p-column>
 
       <p-footer>
           <div class="ui-buttonpane">
@@ -30,15 +31,69 @@
       <div *ngIf="item">
           <div class="ui-g">
               <div class="ui-md-6">
-                  <label for="nombre">Modelo: <i class="fa fa-asterisk" title="Campo obligatorio"></i></label>
+                  <label for="nombre">Nombre:<i class="fa fa-asterisk" title="Campo obligatorio"></i></label>
                   <input id="nombre" required="required" placeholder="Nombre del equipo" pInputText [(ngModel)]="item.nombre" />
               </div>
-
               <div class="ui-md-6">
-                  <label for="activo">Activo:</label>
-                  <div class="clearfix"></div>
-                  <p-toggleButton [(ngModel)]="item.activo" [disabled]="false"></p-toggleButton>
-              </div>
+                    <label for="codigo">Código:<i class="fa fa-asterisk" title="Campo obligatorio"></i></label>
+                    <input id="codigo" required="required" placeholder="Código" pInputText [(ngModel)]="item.codigo" />  
+              </div>    
+              <div class="ui-md-6">
+                    <label for="url">Url:</label>
+                    <input id="url" placeholder="URL" pInputText [(ngModel)]="item.url" />  
+              </div>    
+              <div class="ui-md-6">
+                    <label for="comentarios">Comentarios:</label>
+                    <input id="comentarios" placeholder="Comentarios" pInputText [(ngModel)]="item.comentarios" />  
+              </div>    
+              <div class="ui-md-6">
+                    <label for="direccion">Dirección:</label>
+                    <input id="direccion" placeholder="Direccion" pInputText [(ngModel)]="item.direccion" />  
+              </div>    
+              <div class="ui-md-6">
+                    <label for="ciudad">Ciudad:</label>
+                    <input id="ciudad" placeholder="Ciudad" pInputText [(ngModel)]="item.ciudad" />  
+              </div>    
+              <div class="ui-md-6">
+                    <label for="provincia">Provincia:</label>
+                    <input id="provincia" placeholder="provincia" pInputText [(ngModel)]="item.provincia" />  
+              </div>    
+              <div class="ui-md-6">
+                    <label for="estado">Estado:</label>
+                    <input id="estado" placeholder="Estado" pInputText [(ngModel)]="item.estado" />  
+              </div>    
+              <div class="ui-md-6">
+                    <label for="cp">Código postal:</label>
+                    <input id="cp" placeholder="35012" pInputText [(ngModel)]="item.cp" />  
+              </div>    
+              <div class="ui-md-6">
+                    <label for="persona_contacto">Persona de contacto:</label>
+                    <input id="persona_contacto" placeholder="Nombre del responsable de compras" pInputText [(ngModel)]="item.persona_contacto" />  
+              </div>    
+              <div class="ui-md-6">
+                    <label for="telefono">Teléfono:</label> 
+                    <input id="telefono" placeholder="777 666 55 44" pInputText [(ngModel)]="item.telefono" />  
+              </div>    
+              <div class="ui-md-6">
+                    <label for="movil">Móvil:</label> 
+                    <input id="movil" placeholder="777 666 55 44" pInputText [(ngModel)]="item.movil" />  
+              </div>    
+              <div class="ui-md-6">
+                    <label for="fax">Fax:</label> 
+                    <input id="fax" placeholder="777 666 55 44" pInputText [(ngModel)]="item.fax" />  
+              </div>    
+              <div class="ui-md-6">
+                    <label for="email">E-mail:</label> 
+                    <input id="email" placeholder="usuario@empresa.com" pInputText [(ngModel)]="item.email" />  
+              </div>    
+              <div class="ui-md-6">
+                    <label for="dias_vencimiento">Días de vencimiento:</label> 
+                    <input id="dias_vencimiento" placeholder="30" pInputText [(ngModel)]="item.dias_vencimiento" />  
+              </div>    
+              <div class="ui-md-6">
+                    <label for="tipo">Tipo:</label> 
+                    <input id="tipo" placeholder="" pInputText [(ngModel)]="item.tipo" />  
+              </div>    
           </div>
       </div>
 

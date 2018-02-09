@@ -192,12 +192,14 @@ export class AppClientesComponent extends AppBaseComponent {
     }
 
     onRowSelect(event) {
+        console.log("Modificar esto para que pida los datos por webservice al Id"+event.data.id);
         this.newItem = false;
         this.item = this.cloneItem(event.data);
         this.displayDialog = true;
     }
 
     cloneItem(c: Cliente): Cliente {
+        console.log("Quizás este método no es necesario");
         let item = new ObjetoCliente();
         for (let prop in c) {
             item[prop] = c[prop];
