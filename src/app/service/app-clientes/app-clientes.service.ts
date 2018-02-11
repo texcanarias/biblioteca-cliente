@@ -28,6 +28,18 @@ export class AppClientesService extends Base{
       .catch(this.handleError);
   }
 
+  public getItem(IdItem: number){
+    var headers = this.getHeaders();
+
+    let options = new RequestOptions({ headers: headers });
+
+    return this.http.get(this.URLServer + 'clientes' + '/' + IdItem, options)
+      .toPromise()
+      .then(res => <Cliente>res.json())
+      .then(data => {return data;})
+      .catch(this.handleError);    
+  }
+
 
   public putItem(item: Cliente) {
     var headers = this.getHeaders();

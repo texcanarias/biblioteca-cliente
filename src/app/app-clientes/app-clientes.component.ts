@@ -27,9 +27,6 @@ export class AppClientesComponent extends AppBaseComponent {
     newItem: boolean;
     items: Cliente[];
 
-    //Calendario. Internacionalizacion del Calendario
-    locale_calendar_es: any;
-
     msgs: any[] = []; //Array de mensajes de error    
     msgs_table: any[] = []; //Array de mensajes de error  
 
@@ -70,8 +67,6 @@ export class AppClientesComponent extends AppBaseComponent {
                         this.displayDialog = false;
                         this.postSave();
                         this.msgs_table.push({ severity: 'info', summary: 'Checklist creado', detail: 'Se ha dado de alta un checklist.' });
-
-                        this.cargaTodo();
                     })
                     .catch((error: any) => {
                         let codigo_error: Number = Number(error._body.code);
@@ -103,8 +98,6 @@ export class AppClientesComponent extends AppBaseComponent {
                         this.displayDialog = false;
                         this.postSave();
                         this.msgs_table.push({ severity: 'info', summary: 'Checklist modificado', detail: 'El checklist ha sido modificado.' });
-
-                        this.cargaTodo();                        
                     })
                     .catch((error: any) => {
                         let codigo_error: Number = Number(error._body.code);
@@ -194,7 +187,12 @@ export class AppClientesComponent extends AppBaseComponent {
     onRowSelect(event) {
         console.log("Modificar esto para que pida los datos por webservice al Id"+event.data.id);
         this.newItem = false;
-        this.item = this.cloneItem(event.data);
+        //this.item = this.cloneItem(event.data);
+
+        this.ModeloClienteService.getItem(event.data.id).then(item => {
+            this.item = <Cliente>item;
+        });
+
         this.displayDialog = true;
     }
 

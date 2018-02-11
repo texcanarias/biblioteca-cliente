@@ -1,23 +1,25 @@
 <div *ngIf="usuarioLogueado" class="ui-g">
-  <p-dataTable #dt [value]="items" selectionMode="single" [(selection)]="selectedItem" [paginator]="true" [rows]="10" [responsive]="true" (onRowSelect)="onRowSelect($event)">
+  <p-dataTable #dt [value]="items" 
+            selectionMode="single" 
+            [(selection)]="selectedItem" 
+            [paginator]="true" 
+            [rows]="10" 
+            [responsive]="true" 
+            (onRowSelect)="onRowSelect($event)" 
+            sortMode="multiple"
+            [globalFilter]="gb">
       <p-header>
           <h1>Clientes</h1>
-
-          <div class="ui-buttonpane m-b-15">
-              <div class="pull-right">
-                  <button type="button" pButton icon="fa-plus" (click)="showDialogToAdd()" title="Nuevo modelo" label="Nuevo modelo"></button>
-              </div>
-          </div>
       </p-header>
 
-      <p-column field="nombre" header="Nombre" [sortable]="true"></p-column>
-      <p-column field="codigo" header="Código" [sortable]="true"></p-column>
+      <p-column field="nombre" header="Nombre" [sortable]="true" [filter]="true"></p-column>
+      <p-column field="codigo" header="Código" [sortable]="true" [filter]="true"></p-column>
       <p-column field="telefono" header="Telefono" ></p-column>
 
       <p-footer>
           <div class="ui-buttonpane">
               <div class="pull-right">
-                  <button type="button" pButton icon="fa-plus" (click)="showDialogToAdd()" title="Nuevo modelo" label="Nuevo modelo"></button>
+                  <button type="button" pButton icon="fa-plus" (click)="showDialogToAdd()" title="Nuevo cliente" label="Nuevo cliente"></button>
               </div>
           </div>
       </p-footer>
