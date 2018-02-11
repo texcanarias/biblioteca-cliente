@@ -17,6 +17,7 @@ import { AppHomeComponent } from './app-home/app-home.component';
 
 //Servicios 
 import { AppClientesService } from './service/app-clientes/app-clientes.service';
+import { AppProveedoresService }  from './service/app-proveedores/app-proveedores.service';
 import { GestionUsuarioService } from './service/gestion-usuarios/gestion-usuario.service';
 import { LoginService } from './service/login/login.service';
 
@@ -88,6 +89,7 @@ const appRoutes: Routes = [
   providers: [
     ConfirmationService,
     AppClientesService,
+    AppProveedoresService,
     GestionUsuarioService,
     LoginService,
     {provide: LocationStrategy, useClass: HashLocationStrategy}
