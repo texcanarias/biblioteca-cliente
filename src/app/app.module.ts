@@ -14,6 +14,7 @@ import { AppGestionUsuariosComponent } from './app-gestion-usuarios/app-gestion-
 import { AppClientesComponent } from './app-clientes/app-clientes.component';
 import { AppProveedoresComponent } from './app-proveedores/app-proveedores.component';
 import { AppHomeComponent } from './app-home/app-home.component';
+import { AppFamiliaComponent } from './app-familia/app-familia.component';
 
 //Servicios 
 import { AppClientesService } from './service/app-clientes/app-clientes.service';
@@ -40,8 +41,12 @@ import {TabViewModule,
       RadioButtonModule,
       MultiSelectModule,
       MenubarModule, 
-      MenuItem
+      MenuItem,
+      TreeModule,
+      TreeNode,
+      Tree
       } from 'primeng/primeng';
+import { Component } from '@angular/core/src/metadata/directives';
 
 const appRoutes: Routes = [
   { path: '',redirectTo: 'home', pathMatch: 'full' },  
@@ -49,6 +54,7 @@ const appRoutes: Routes = [
   { path: 'gestion_usuario', component: AppGestionUsuariosComponent},
   { path: 'gestion_clientes', component: AppClientesComponent},
   { path: 'gestion_proveedores', component: AppProveedoresComponent},
+  { path: 'gestion_familias', component: AppFamiliaComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -59,7 +65,8 @@ const appRoutes: Routes = [
     AppGestionUsuariosComponent,
     AppHomeComponent,
     AppClientesComponent,
-    AppProveedoresComponent
+    AppProveedoresComponent,
+    AppFamiliaComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +91,8 @@ const appRoutes: Routes = [
     PanelModule,
     ChartModule,
     RadioButtonModule,
-    MultiSelectModule
+    MultiSelectModule,
+    TreeModule
   ],
   providers: [
     ConfirmationService,

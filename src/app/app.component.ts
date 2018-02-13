@@ -64,16 +64,18 @@ export class AppComponent {
           {
             label:'Gestión', icon: 'fa-area-chart',
             items: [
-              { label: 'Clientes', icon: 'fa-calendar-o', routerLink: ['/gestion_clientes'] },
-              { label: 'Proveedores', icon: 'fa-play', routerLink: ['/gestion_proveedores'] }              
+              { label: 'Clientes', icon: 'fa-users', routerLink: ['/gestion_clientes'] },
+              { label: 'Proveedores', icon: 'fa-users', routerLink: ['/gestion_proveedores'] },              
+              { label: 'Familias', icon: 'fa-sitemap', routerLink: ['/gestion_familias'] }
             ]
           }
         ];
         break;
       case AppComponent.tipo_gestor:
         this.itemsMenubar = [
-          { label: 'Clientes', icon: 'fa-calendar-o', routerLink: ['/gestion_clientes'] },
-          { label: 'Proveedores', icon: 'fa-play', routerLink: ['/gestion_proveedores'] }
+          { label: 'Clientes', icon: 'fa-users', routerLink: ['/gestion_clientes'] },
+          { label: 'Proveedores', icon: 'fa-users', routerLink: ['/gestion_proveedores'] },
+          { label: 'Familias', icon: 'fa-sitemap', routerLink: ['/gestion_familias'] }
         ];
         break;
     }
