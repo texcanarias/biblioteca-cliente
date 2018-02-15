@@ -44,7 +44,8 @@ import {TabViewModule,
       MenuItem,
       TreeModule,
       TreeNode,
-      Tree
+      Tree,
+      TreeDragDropService
       } from 'primeng/primeng';
 import { Component } from '@angular/core/src/metadata/directives';
 
@@ -96,6 +97,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     ConfirmationService,
+    TreeDragDropService,
     AppClientesService,
     AppProveedoresService,
     GestionUsuarioService,

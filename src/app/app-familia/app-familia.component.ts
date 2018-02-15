@@ -8,7 +8,7 @@ import { ConfirmDialogModule, ConfirmationService } from 'primeng/primeng';*/
 import {TreeModule} from 'primeng/primeng';
 import {TreeNode} from 'primeng/primeng';
 import {Tree} from 'primeng/primeng';
-
+import {TreeDragDropService} from 'primeng/primeng';
 
 @Component({
   selector: 'app-app-familia',
@@ -25,6 +25,36 @@ export class AppFamiliaComponent extends AppBaseComponent {
 
   ngOnInit() {
     super.ngOnInit();
+
+    this.filesTree = [
+      {
+        label: 'Folder 1',
+        collapsedIcon: 'fa-folder',
+        expandedIcon: 'fa-folder-open',
+        children: [
+          {
+            label: 'Folder 2',
+            collapsedIcon: 'fa-folder',
+            expandedIcon: 'fa-folder-open',
+            children: [
+              {
+                label: 'File 2',
+                icon: 'fa-file-o'
+              }
+            ]
+          },
+          {
+            label: 'Folder 2',
+            collapsedIcon: 'fa-folder',
+            expandedIcon: 'fa-folder-open'
+          },
+          {
+            label: 'File 1',
+            icon: 'fa-file-o'
+          }
+        ]
+      }
+    ];    
   }
 
 }
