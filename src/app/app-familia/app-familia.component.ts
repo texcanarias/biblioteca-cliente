@@ -28,27 +28,32 @@ export class AppFamiliaComponent extends AppBaseComponent {
 
     this.filesTree = [
       {
+        data:1,
         label: 'Folder 1',
         collapsedIcon: 'fa-folder',
         expandedIcon: 'fa-folder-open',
         children: [
           {
+            data:2,
             label: 'Folder 2',
             collapsedIcon: 'fa-folder',
             expandedIcon: 'fa-folder-open',
             children: [
               {
+                data:3,
                 label: 'File 2',
                 icon: 'fa-file-o'
               }
             ]
           },
           {
+            data:4,
             label: 'Folder 2',
             collapsedIcon: 'fa-folder',
             expandedIcon: 'fa-folder-open'
           },
           {
+            data:5,
             label: 'File 1',
             icon: 'fa-file-o'
           }
@@ -58,39 +63,33 @@ export class AppFamiliaComponent extends AppBaseComponent {
   }
 
   customNodeSelect(event){
-    if(event.node) {
-      console.table(event);
-    }  
+    console.log("customNodeSelect");
+    console.dir(event);
   }
 
   customNodeUnselect(event){
-    if(event.node) {
-      console.table(event);
-    }  
+    console.log("customNodeUnSelect");
+    console.dir(event);
   }
 
   customNodeExpand(event){
-    if(event.node) {
-      console.table(event);
-    }  
+    console.log("customExpand");
+    console.dir(event);
   }
 
   customNodeCollapse(event){
-    if(event.node) {
-      console.table(event);
-    }  
+    console.log("customNodeCollapse");
+    console.dir(event);
   }
 
   customNodeContextMenuSelect(event){
-    if(event.node) {
-      console.table(event);
-    }  
+    console.log("customNodeContextMenuSelect");
+    console.dir(event);
   }
 
   customNodeDrop(event){
-    if(event.node) {
-      console.table(event);
-    }  
+    console.log("customNodeDrop");
+    console.dir(event);
   }
 
 
