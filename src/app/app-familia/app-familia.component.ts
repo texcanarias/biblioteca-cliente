@@ -57,4 +57,41 @@ export class AppFamiliaComponent extends AppBaseComponent {
     ];    
   }
 
+  customNodeSelect(event){
+    if(event.node) {
+      console.table(event);
+    }  
+  }
+
+  customNodeUnselect(event){
+    if(event.node) {
+      console.table(event);
+    }  
+  }
+
+  customNodeExpand(event){
+    if(event.node) {
+      console.table(event);
+    }  
+  }
+
+  customNodeCollapse(event){
+    if(event.node) {
+      console.table(event);
+    }  
+  }
+
+  customNodeContextMenuSelect(event){
+    if(event.node) {
+      console.table(event);
+    }  
+  }
+
+  customNodeDrop(event){
+    if(event.node) {
+      console.table(event);
+    }  
+  }
+
+
 }

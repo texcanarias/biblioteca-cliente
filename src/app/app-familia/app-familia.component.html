@@ -2,6 +2,12 @@
   <p-tree [value]="filesTree" 
           draggableNodes="true" 
           droppableNodes="true" 
-          dragdropScope="files">
+          dragdropScope="files"
+          (onNodeSelect) = "customNodeSelect($event)"
+          (onNodeUnselect) = "customNodeUnselect($event)"
+          (onNodeExpand) = "customNodeExpand($event)"
+          (onNodeCollapse) = "customNodeCollapse($event)"
+          (onNodeContextMenuSelect) = "customNodeContextMenuSelect($event)"
+          (onNodeDrop) = "customNodeDrop($event)">
   </p-tree>
 </div>
