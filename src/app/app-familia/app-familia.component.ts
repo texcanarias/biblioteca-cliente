@@ -41,6 +41,7 @@ export class AppFamiliaComponent extends AppBaseComponent {
             children: [
               {
                 data:3,
+                droppable: false,
                 label: 'File 2',
                 icon: 'fa-file-o'
               }
@@ -54,6 +55,7 @@ export class AppFamiliaComponent extends AppBaseComponent {
           },
           {
             data:5,
+            droppable: false,
             label: 'File 1',
             icon: 'fa-file-o'
           }
