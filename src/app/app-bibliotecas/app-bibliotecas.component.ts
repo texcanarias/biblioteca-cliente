@@ -1,35 +1,35 @@
 import { AppBaseComponent } from '../app-base/app-base.component';
 
 import { Component } from '@angular/core';
-import { Proveedor } from '../service/app-proveedores/proveedor';
-import { AppProveedoresService } from '../service/app-proveedores/app-proveedores.service';
+import { Biblioteca } from '../service/app-bibliotecas/biblioteca';
+import { AppBibliotecasService } from '../service/app-bibliotecas/app-bibliotecas.service';
 import { SelectItem } from 'primeng/primeng'
 import { ConfirmDialogModule, ConfirmationService } from 'primeng/primeng';
 
 
-class ObjetoProveedor implements Proveedor {
-    constructor(id?: number,  nombre?: string, codigo?: string, url?: string, comentarios?: string, direccion?: string, ciudad?: string,  provincia?: string,  estado?: string,cp?: string, persona_contacto?: string, telefono?: string, movil?: string, fax?: string, email?: string) {
+class ObjetoBiblioteca implements Biblioteca {
+    constructor(id?: number,  titulo?: string, autor?: string, leido?: boolean) {
     }
 }
 
 @Component({
-  selector: 'app-app-proveedores',
-  templateUrl: './app-proveedores.component.html',
-  styleUrls: ['./app-proveedores.component.css']
+  selector: 'app-app-bibliotecas',
+  templateUrl: './app-bibliotecas.component.html',
+  styleUrls: ['./app-bibliotecas.component.css']
 })
-export class AppProveedoresComponent extends AppBaseComponent {
+export class AppBibliotecasComponent extends AppBaseComponent {
 
   
   displayDialog: boolean;
-  item: Proveedor = new ObjetoProveedor();
-  selectedItem: Proveedor;
+  item: Biblioteca = new ObjetoBiblioteca();
+  selectedItem: Biblioteca;
   newItem: boolean;
-  items: Proveedor[];
+  items: Biblioteca[];
 
   msgs: any[] = []; //Array de mensajes de error    
   msgs_table: any[] = []; //Array de mensajes de error  
 
-  constructor(private ModeloProveedorService: AppProveedoresService,
+  constructor(private ModeloBibliotecaService: AppBibliotecasService,
               private confirmationService: ConfirmationService) {
       super();
   }
@@ -41,14 +41,14 @@ export class AppProveedoresComponent extends AppBaseComponent {
   }
 
   cargaTodo(){
-      this.ModeloProveedorService.getItems().then(items => {
-          this.items = <Proveedor[]>items;
+      this.ModeloBibliotecaService.getItems().then(items => {
+          this.items = <Biblioteca[]>items;
       });
   }
 
   showDialogToAdd() {
       this.newItem = true;
-      this.item = new ObjetoProveedor();
+      this.item = new ObjetoBiblioteca();
       this.displayDialog = true;
   }
 
@@ -56,10 +56,10 @@ export class AppProveedoresComponent extends AppBaseComponent {
       let items = [...this.items];
       if (this.checkSave()) {
           if (this.newItem) {
-                  this.ModeloProveedorService.postItem(this.item)
+                  this.ModeloBibliotecaService.postItem(this.item)
                   .then((res: any) => {
                       let item = JSON.parse(res._body);
-                      let a: Proveedor = new ObjetoProveedor(item.id,  item.nombre, item.codigo, item.url, item.comentarios, item.direccion, item.ciudad,  item.provincia,  item.estado, item.cp, item.persona_contacto, item.telefono, item.movil, item.fax, item.email);
+                      let a: Biblioteca = new ObjetoBiblioteca(item.id,  item.titulo, item.autor, item.leido);
                       items.push(a);                        
                       this.items = [...items];
                       this.item = null;
@@ -88,7 +88,7 @@ export class AppProveedoresComponent extends AppBaseComponent {
               
           }
           else {
-                  this.ModeloProveedorService.putItem(this.item)
+                  this.ModeloBibliotecaService.putItem(this.item)
                   .then((res: any) => {
                       let item = JSON.parse(res._body);
                       let idx = this.findSelectedItemIndex();
@@ -155,12 +155,12 @@ export class AppProveedoresComponent extends AppBaseComponent {
       this.msgs = [];
       this.msgs_table = [];
   
-      this.ModeloProveedorService.deleteItem(this.item)
+      this.ModeloBibliotecaService.deleteItem(this.item)
           .then((res: any) => {
               this.items = this.items.filter((val, i) => i != this.findSelectedItemIndex());
               this.item = null;
               this.displayDialog = false;
-              this.msgs_table.push({ severity: 'info', summary: 'Proveedor eliminado', detail: 'El Proveedor ha sido eliminado.' });
+              this.msgs_table.push({ severity: 'info', summary: 'Biblioteca eliminado', detail: 'El Biblioteca ha sido eliminado.' });
           })
           .catch((error: any) => {
               let codigo_error: Number = Number(error._body.code);
@@ -184,20 +184,20 @@ export class AppProveedoresComponent extends AppBaseComponent {
   }
 
   onRowSelect(event) {
-      console.log("Modificar esto para que pida los datos por webservice al Id"+event.data.id);
+      console.log("Modificar esto para que pida los datos por webservice al Id "+event.data.id);
       this.newItem = false;
       //this.item = this.cloneItem(event.data);
 
-      this.ModeloProveedorService.getItem(event.data.id).then(item => {
-          this.item = <Proveedor>item;
+      this.ModeloBibliotecaService.getItem(event.data.id).then(item => {
+          this.item = <Biblioteca>item;
       });
 
       this.displayDialog = true;
   }
 
-  cloneItem(c: Proveedor): Proveedor {
+  cloneItem(c: Biblioteca): Biblioteca {
       console.log("Quizás este método no es necesario");
-      let item = new ObjetoProveedor();
+      let item = new ObjetoBiblioteca();
       for (let prop in c) {
           item[prop] = c[prop];
       }
@@ -205,7 +205,7 @@ export class AppProveedoresComponent extends AppBaseComponent {
   }
 
   modifyItemListado(objListado: any, objItem: any): any {
-      let item = new ObjetoProveedor();
+      let item = new ObjetoBiblioteca();
       for (let prop in objListado) {
           objListado[prop] = objItem[prop];
       }

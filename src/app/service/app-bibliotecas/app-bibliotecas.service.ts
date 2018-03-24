@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, Request, RequestOptions, RequestMethod, URLSearchParams } from '@angular/http';
-import { Cliente } from './cliente';
+import { Biblioteca } from './biblioteca';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -9,11 +9,11 @@ import 'rxjs/add/operator/toPromise';
 import { Base } from '../base/base.service';
 
 @Injectable()
-export class AppClientesService extends Base{
+export class AppBibliotecasService extends Base{
 
   constructor(private http: Http) {
     super(http);
-    this.URLServer = this.URLServer+"/server/index.php/cliente_1_0/";
+    this.URLServer = this.URLServer+"/server/index.php/biblioteca_1_0/";
   }
 
   public getItems() {
@@ -21,9 +21,9 @@ export class AppClientesService extends Base{
 
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get(this.URLServer + 'clientes', options)
+    return this.http.get(this.URLServer + 'Bibliotecas', options)
       .toPromise()
-      .then(res => <Cliente[]>res.json())
+      .then(res => <Biblioteca[]>res.json())
       .then(data => {return data;})
       .catch(this.handleError);
   }
@@ -33,15 +33,15 @@ export class AppClientesService extends Base{
 
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get(this.URLServer + 'clientes' + '/' + IdItem, options)
+    return this.http.get(this.URLServer + 'Bibliotecas' + '/' + IdItem, options)
       .toPromise()
-      .then(res => <Cliente>res.json())
+      .then(res => <Biblioteca>res.json())
       .then(data => {return data;})
       .catch(this.handleError);    
   }
 
 
-  public putItem(item: Cliente) {
+  public putItem(item: Biblioteca) {
     var headers = this.getHeaders();
 
     let options = new RequestOptions({ headers: headers });
@@ -53,7 +53,7 @@ export class AppClientesService extends Base{
       .catch(this.handleError);
   }
 
-  public postItem(item: Cliente) {
+  public postItem(item: Biblioteca) {
     var headers = this.getHeaders();
 
     let options = new RequestOptions({ headers: headers });
@@ -66,7 +66,7 @@ export class AppClientesService extends Base{
       .catch(this.handleError);
   }
 
-  public deleteItem(item: Cliente) {
+  public deleteItem(item: Biblioteca) {
     var headers = this.getHeaders();
 
     let peticion: any = { "id": item.id };
