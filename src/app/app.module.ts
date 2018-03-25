@@ -50,7 +50,7 @@ const appRoutes: Routes = [
   { path: '',redirectTo: 'home', pathMatch: 'full' },  
   { path: 'home', component: AppHomeComponent },
   { path: 'gestion_usuario', component: AppGestionUsuariosComponent},
-  { path: 'gestion_bilbiotecas', component: AppBibliotecasComponent},
+  { path: 'gestion_bibliotecas', component: AppBibliotecasComponent},
   { path: '**', component: PageNotFoundComponent }
 ];
 

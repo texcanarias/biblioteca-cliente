@@ -17,7 +17,7 @@ export class Base {
       this.URLServer = "http://disotm.com";
     }
     else{
-      this.URLServer = "http://192.168.0.163";
+      this.URLServer = "http://localhost/biblioteca";
     }
   }
 

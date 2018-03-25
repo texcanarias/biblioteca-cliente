@@ -61,21 +61,12 @@ export class AppComponent {
       case AppComponent.tipo_admin:
         this.itemsMenubar = [
           { label: 'Administrador', icon: 'fa-user', routerLink: ['/gestion_usuario'] },
-          {
-            label:'Gestión', icon: 'fa-area-chart',
-            items: [
-              { label: 'Clientes', icon: 'fa-users', routerLink: ['/gestion_clientes'] },
-              { label: 'Proveedores', icon: 'fa-users', routerLink: ['/gestion_proveedores'] },              
-              { label: 'Familias', icon: 'fa-sitemap', routerLink: ['/gestion_familias'] }
-            ]
-          }
+          { label: 'Libros', icon: 'fa-book', routerLink: ['/gestion_bibliotecas'] }
         ];
         break;
       case AppComponent.tipo_gestor:
         this.itemsMenubar = [
-          { label: 'Clientes', icon: 'fa-users', routerLink: ['/gestion_clientes'] },
-          { label: 'Proveedores', icon: 'fa-users', routerLink: ['/gestion_proveedores'] },
-          { label: 'Familias', icon: 'fa-sitemap', routerLink: ['/gestion_familias'] }
+          { label: 'Libros', icon: 'fa-book', routerLink: ['/gestion_bibliotecas'] }
         ];
         break;
     }
@@ -138,7 +129,7 @@ export class AppComponent {
         break;
       case AppComponent.tipo_gestor:
         sessionStorage.setItem('usuarioEnSession', JSON.stringify(this.objUsuarioLogueado));
-        this.router.navigate(['/gestion_clientes']);
+        this.router.navigate(['/gestion_bibliotecas']);
         this.editar_menu();
         break;
       default:
