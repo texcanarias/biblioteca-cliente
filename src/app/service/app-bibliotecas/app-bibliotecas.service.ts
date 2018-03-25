@@ -21,7 +21,7 @@ export class AppBibliotecasService extends Base{
 
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get(this.URLServer + 'Bibliotecas', options)
+    return this.http.get(this.URLServer + 'bibliotecas', options)
       .toPromise()
       .then(res => <Biblioteca[]>res.json())
       .then(data => {return data;})
@@ -33,7 +33,7 @@ export class AppBibliotecasService extends Base{
 
     let options = new RequestOptions({ headers: headers });
 
-    return this.http.get(this.URLServer + 'Bibliotecas' + '/' + IdItem, options)
+    return this.http.get(this.URLServer + 'bibliotecas' + '/' + IdItem, options)
       .toPromise()
       .then(res => <Biblioteca>res.json())
       .then(data => {return data;})
@@ -74,7 +74,7 @@ export class AppBibliotecasService extends Base{
     let body = JSON.stringify(peticion);
     let options = new RequestOptions({ headers: headers, body: body });
 
-    return this.http.delete(this.URLServer, options)
+    return this.http.delete(this.URLServer+ 'bibliotecas' + '/' , options)
       .toPromise()
       .then(data => { return data; })
       .catch(this.handleError);

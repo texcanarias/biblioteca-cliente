@@ -8,7 +8,7 @@ import { ConfirmDialogModule, ConfirmationService } from 'primeng/primeng';
 
 
 class ObjetoBiblioteca implements Biblioteca {
-    constructor(id?: number,  titulo?: string, autor?: string, leido?: boolean) {
+    constructor(id?: number,  titulo?: string, autor?: string, posicion?:string, leido?: boolean) {
     }
 }
 
@@ -59,7 +59,7 @@ export class AppBibliotecasComponent extends AppBaseComponent {
                   this.ModeloBibliotecaService.postItem(this.item)
                   .then((res: any) => {
                       let item = JSON.parse(res._body);
-                      let a: Biblioteca = new ObjetoBiblioteca(item.id,  item.titulo, item.autor, item.leido);
+                      let a: Biblioteca = new ObjetoBiblioteca(item.id,  item.titulo, item.autor, item.posicion, item.leido);
                       items.push(a);                        
                       this.items = [...items];
                       this.item = null;
