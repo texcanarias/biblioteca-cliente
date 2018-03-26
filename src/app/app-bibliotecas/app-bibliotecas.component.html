@@ -12,7 +12,7 @@
           <h1>Libros</h1>
       </p-header>
 
-      <p-column field="titulo" header="Título" [sortable]="true" [filter]="true"></p-column>
+      <p-column field="nombre" header="Título" [sortable]="true" [filter]="true"></p-column>
       <p-column field="autor" header="Autor" [sortable]="true" [filter]="true"></p-column>
       <p-column field="posicion" header="Posición" [sortable]="true" [filter]="true"></p-column>
       <p-column field="leido" header="Leído" [sortable]="true" [filter]="true"></p-column>
@@ -35,7 +35,7 @@
           <div class="ui-g">
               <div class="ui-md-6">
                   <label for="titulo">Título:<i class="fa fa-asterisk" title="Campo obligatorio"></i></label>
-                  <input id="titulo" required="required" placeholder="Título" pInputText [(ngModel)]="item.titulo" />
+                  <input id="titulo" required="required" placeholder="Título" pInputText [(ngModel)]="item.nombre" />
               </div>
               <div class="ui-md-6">
                     <label for="autor">Código:<i class="fa fa-asterisk" title="Campo obligatorio"></i></label>
