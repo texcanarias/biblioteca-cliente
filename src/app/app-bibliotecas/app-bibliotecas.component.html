@@ -9,10 +9,10 @@
             sortMode="multiple"
             [globalFilter]="gb">
       <p-header>
-          <h1>Proveedores</h1>
+          <h1>Libros</h1>
       </p-header>
 
-      <p-column field="nombre" header="Título" [sortable]="true" [filter]="true"></p-column>
+      <p-column field="titulo" header="Título" [sortable]="true" [filter]="true"></p-column>
       <p-column field="autor" header="Autor" [sortable]="true" [filter]="true"></p-column>
       <p-column field="posicion" header="Posición" [sortable]="true" [filter]="true"></p-column>
       <p-column field="leido" header="Leído" [sortable]="true" [filter]="true"></p-column>
@@ -20,7 +20,7 @@
       <p-footer>
           <div class="ui-buttonpane">
               <div class="pull-right">
-                  <button type="button" pButton icon="fa-plus" (click)="showDialogToAdd()" title="Nuevo proveedor" label="Nuevo proveedor"></button>
+                  <button type="button" pButton icon="fa-plus" (click)="showDialogToAdd()" title="Nuevo libro" label="Nuevo libro"></button>
               </div>
           </div>
       </p-footer>
@@ -28,18 +28,18 @@
 
   <p-confirmDialog header="Confirmaci&oacute;n de eliminaci&oacute;n" [responsive]="true" key="check"></p-confirmDialog>
 
-  <p-dialog header="Proveedor" [(visible)]="displayDialog" [responsive]="true" [resizable]="false" [width]="auto" showEffect="fade" [modal]="true">
+  <p-dialog header="Libros" [(visible)]="displayDialog" [responsive]="true" [resizable]="false" [width]="auto" showEffect="fade" [modal]="true">
       <p-messages [value]="msgs"></p-messages>
 
       <div *ngIf="item">
           <div class="ui-g">
               <div class="ui-md-6">
-                  <label for="nombre">Título:<i class="fa fa-asterisk" title="Campo obligatorio"></i></label>
-                  <input id="nombre" required="required" placeholder="Título" pInputText [(ngModel)]="item.titulo" />
+                  <label for="titulo">Título:<i class="fa fa-asterisk" title="Campo obligatorio"></i></label>
+                  <input id="titulo" required="required" placeholder="Título" pInputText [(ngModel)]="item.titulo" />
               </div>
               <div class="ui-md-6">
                     <label for="autor">Código:<i class="fa fa-asterisk" title="Campo obligatorio"></i></label>
-                    <input id="autor" required="required" placeholder="Código" pInputText [(ngModel)]="item.autor" />  
+                    <input id="autor" required="required" placeholder="Autor" pInputText [(ngModel)]="item.autor" />  
               </div>    
               <div class="ui-md-6">
                 <label for="posicion">Posición:<i class="fa fa-asterisk" title="Campo obligatorio"></i></label>
