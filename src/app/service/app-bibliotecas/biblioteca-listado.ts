@@ -4,4 +4,5 @@ export interface Biblioteca {
     autor?: string;
     posicion?: string;
     leido?: boolean;
+    origen?: string;    
 }
