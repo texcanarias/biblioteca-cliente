@@ -12,10 +12,8 @@
         <p-column field="origen" header="Origen" [sortable]="true" [filter]="true"></p-column>
 
         <p-footer>
-            <div class="ui-buttonpane">
-                <div class="pull-right">
-                    <button type="button" pButton icon="fa-plus" (click)="showDialogToAdd()" title="Nuevo libro" label="Nuevo libro"></button>
-                </div>
+            <div class="pull-right">
+                <button type="button" pButton icon="fa-plus" (click)="showDialogToAdd()" title="Nuevo libro" label="Nuevo libro"></button>
             </div>
         </p-footer>
     </p-dataTable>
@@ -28,43 +26,41 @@
 
         <div *ngIf="item">
             <div class="ui-g">
-                <div class="ui-md-6">
-                    <label for="titulo">Título:
+                <div class="ui-md-12">
+                    <label for="titulo" class="ui-md-2">Título:
                         <i class="fa fa-asterisk" title="Campo obligatorio"></i>
                     </label>
-                    <input id="titulo" required="required" placeholder="Título" pInputText [(ngModel)]="item.nombre" />
+                    <input id="titulo" required="required" placeholder="Título" pInputText [(ngModel)]="item.nombre" class="ui-md-10" />
                 </div>
-                <div class="ui-md-6">
-                    <label for="autor">Autor:
+                <div class="ui-md-12">
+                    <label for="autor" class="ui-md-2">Autor:
                         <i class="fa fa-asterisk" title="Campo obligatorio"></i>
                     </label>
-                    <input id="autor" required="required" placeholder="Autor" pInputText [(ngModel)]="item.autor" />
+                    <input id="autor" required="required" placeholder="Autor" pInputText [(ngModel)]="item.autor" class="ui-md-10" />
                 </div>
-                <div class="ui-md-6">
+                <div class="ui-md-4">
                     <label for="posicion">Posición:
                         <i class="fa fa-asterisk" title="Campo obligatorio"></i>
                     </label>
                     <input id="posicion" required="required" placeholder="Posición" pInputText [(ngModel)]="item.posicion" />
                 </div>
-                <div class="ui-md-6">
+                <div class="ui-md-4">
                     <label for="leido">Leído:</label>
                     <input id="leido" placeholder="0" pInputText [(ngModel)]="item.leido" />
                 </div>
-                <div class="ui-md-6">
-                    <label for="origen">Leído:</label>
+                <div class="ui-md-4">
+                    <label for="origen">Origen:</label>
                     <input id="origen" placeholder="Origen" pInputText [(ngModel)]="item.origen" />
-                </div>                
+                </div>
             </div>
         </div>
 
         <p-footer>
-            <div class="ui-dialog-buttonpane">
-                <div class="pull-left">
-                    <button *ngIf="!newItem" type="button" pButton icon="fa-trash" (click)="confirmDelete()" label="Eliminar"></button>
-                </div>
-                <div class="pull-right">
-                    <button type="button" pButton icon="fa-save" (click)="save()" label="Guardar"></button>
-                </div>
+            <div class="pull-left">
+                <button *ngIf="!newItem" type="button" pButton icon="fa-trash" (click)="confirmDelete()" label="Eliminar"></button>
+            </div>
+            <div class="pull-right">
+                <button type="button" pButton icon="fa-save" (click)="save()" label="Guardar"></button>
             </div>
         </p-footer>
     </p-dialog>
