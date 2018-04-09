@@ -8,9 +8,12 @@
         <p-column field="nombre" header="Título" [sortable]="true" [filter]="true"></p-column>
         <p-column field="autor" header="Autor" [sortable]="true" [filter]="true"></p-column>
         <p-column field="posicion" header="Posición" [sortable]="true" [filter]="true"></p-column>
-        <p-column field="leido" header="Leído" [sortable]="true" [filter]="true"></p-column>
+        <p-column field="leido" header="Leído" [sortable]="true" [filter]="true">
+            <ng-template let-col let-item="rowData" pTemplate="body">
+                {{(0 != item.leido)?"SI":"NO"}}
+            </ng-template>            
+        </p-column>
         <p-column field="origen" header="Origen" [sortable]="true" [filter]="true"></p-column>
-
         <p-footer>
             <div class="pull-right">
                 <button type="button" pButton icon="fa-plus" (click)="showDialogToAdd()" title="Nuevo libro" label="Nuevo libro"></button>
@@ -46,7 +49,8 @@
                 </div>
                 <div class="ui-md-4">
                     <label for="leido">Leído:</label>
-                    <input id="leido" placeholder="0" pInputText [(ngModel)]="item.leido" />
+                    <!--<input id="leido" placeholder="0" pInputText [(ngModel)]="item.leido" />-->
+                    <p-toggleButton [(ngModel)]="item.leido"></p-toggleButton>
                 </div>
                 <div class="ui-md-4">
                     <label for="origen">Origen:</label>
