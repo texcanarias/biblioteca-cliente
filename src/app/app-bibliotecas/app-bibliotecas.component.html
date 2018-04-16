@@ -1,6 +1,13 @@
-<div *ngIf="usuarioLogueado">
-    <p-dataTable #dt [value]="items" selectionMode="single" [(selection)]="selectedItem" [paginator]="true" [rows]="10" [responsive]="true"
-        (onRowSelect)="onRowSelect($event)" sortMode="multiple" [globalFilter]="gb">
+<div *ngIf="usuarioLogueado" class="ui-g">
+    <p-dataTable #dt [value]="items" 
+            selectionMode="single" 
+            [(selection)]="selectedItem" 
+            [paginator]="true" 
+            [rows]="10" 
+            [responsive]="true"
+            (onRowSelect)="onRowSelect($event)" 
+            sortMode="multiple" 
+            [globalFilter]="gb">
         <p-header>
             <h1>Libros</h1>
         </p-header>
@@ -14,12 +21,9 @@
             </ng-template>
         </p-column>
         <p-column field="origen" header="Origen" [sortable]="true" [filter]="true"></p-column>
+
         <p-footer>
-            <div class="ui-buttonpane">
-                <div class="pull-right">
-                    <button type="button" pButton icon="fa-plus" (click)="showDialogToAdd()" title="Nuevo libro" label="Nuevo libro"></button>
-                </div>
-            </div>
+            <button type="button" pButton icon="fa fa-plus" (click)="showDialogToAdd()" title="Nuevo libro" label="Nuevo libro"></button>
         </p-footer>
     </p-dataTable>
 
@@ -62,14 +66,8 @@
         </div>
 
         <p-footer>
-            <div class="ui-dialog-buttonpane">
-                <div class="pull-left">
-                    <button *ngIf="!newItem" type="button" pButton icon="fa-trash" (click)="confirmDelete()" label="Eliminar"></button>
-                </div>
-                <div class="pull-right">
-                    <button type="button" pButton icon="fa-save" (click)="save()" label="Guardar"></button>
-                </div>
-            </div>
+            <button *ngIf="!newItem" type="button" pButton icon="fa-trash" (click)="confirmDelete()" label="Eliminar" class="ui-button-danger"></button>
+            <button type="button" pButton icon="fa-save" (click)="save()" label="Guardar"></button>
         </p-footer>
     </p-dialog>
 </div>
