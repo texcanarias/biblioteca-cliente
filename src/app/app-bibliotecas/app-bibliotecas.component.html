@@ -16,6 +16,9 @@
         <p-column field="autor" header="Autor" [sortable]="true" [filter]="true"></p-column>
         <p-column field="posicion" header="Posición" [sortable]="true" [filter]="true"></p-column>
         <p-column field="leido" header="Leído" [sortable]="true" [filter]="true">
+            <ng-template pTemplate="filter" let-col>
+                <p-dropdown [options]="leido" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value,col.field,col.filterMatchMode)" styleClass="ui-column-filter"></p-dropdown>
+            </ng-template>            
             <ng-template let-col let-item="rowData" pTemplate="body">
                 {{(0 != item.leido)?"SI":"NO"}}
             </ng-template>

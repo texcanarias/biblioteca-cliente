@@ -26,6 +26,8 @@ export class AppBibliotecasComponent extends AppBaseComponent {
   newItem: boolean;
   items: Biblioteca[];
 
+  leido: SelectItem[];
+
   msgs: any[] = []; //Array de mensajes de error    
   msgs_table: any[] = []; //Array de mensajes de error  
 
@@ -36,6 +38,12 @@ export class AppBibliotecasComponent extends AppBaseComponent {
 
   ngOnInit() {
       super.ngOnInit();
+
+      this.leido = [
+        { label: 'Todos', value: null },
+        { label: 'Si', value: "true" },
+        { label: 'No', value: "false" }
+    ];
 
       this.cargaTodo();
   }
