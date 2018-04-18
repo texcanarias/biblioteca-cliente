@@ -14,7 +14,7 @@ export class Base {
 
   constructor(http: Http) {
     if (environment.production) {
-      this.URLServer = "http://disotm.com";
+      this.URLServer = "http://disotm.com/biblioteca";
     }
     else{
       this.URLServer = "http://localhost/biblioteca";
