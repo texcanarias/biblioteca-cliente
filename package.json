@@ -48,6 +48,6 @@
     "tslint": "~5.7.0",
     "typescript": "~3.3.x",
     "uglifyjs-webpack-plugin": "^2.1.2",
-    "webpack": "^4.29.6"
+    "webpack": "^5.75.0"
   }
 }
